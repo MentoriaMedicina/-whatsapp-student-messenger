@@ -7,7 +7,38 @@ const $=id=>document.getElementById(id);
 let adminUser=null;
 
 async function checkAdmin(user) {
-  const snap=await getDoc(doc(db,"admins",user.uid));
+
+  console.log("LOGIN EMAIL:", user.email);
+  console.log("LOGIN UID:", user.uid);
+
+  const adminRef = doc(db, "admins", user.uid);
+  const snap = await getDoc(adminRef);
+
+  console.log("DOCUMENT EXISTS:", snap.exists());
+
+  if (snap.exists()) {
+    console.log("ADMIN DATA:", snap.data());
+  }
+
+  if (!snap.exists()) {
+    throw new Error("Admin document not found. UID mismatch: " + user.uid);
+  }
+
+  const data = snap.data();
+
+  if (data.role !== "admin" || data.active !== true) {
+    throw new Error("Admin role or active status is incorrect.");
+  }
+
+  adminUser = user;
+
+  $("loginPanel").hidden = true;
+  $("dashboard").hidden = false;
+
+  $("adminWelcome").textContent = `Signed in: ${user.email}`;
+
+  await refreshBundles();
+}
   if(!snap.exists() || snap.data().role!=="admin" || snap.data().active!==true) {
     await signOut(auth);
     throw new Error("This account has no active admin permission. Add its UID to admins collection with role=admin and active=true.");
