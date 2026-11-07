@@ -9,12 +9,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_API_KEY",
-  authDomain: "PASTE_YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_STORAGE_BUCKET",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID"
+  apiKey: "AIzaSyDwyGdsp6mh67Z1cw2yyXSRxtS-Txi8npk",
+  authDomain: "mentoria-medicina-1st-year.firebaseapp.com",
+  projectId: "mentoria-medicina-1st-year",
+  storageBucket: "mentoria-medicina-1st-year.firebasestorage.app",
+  messagingSenderId: "182876014235",
+  appId: "1:182876014235:web:36d85c3f687b66fd2aa83e",
+  measurementId: "G-3NVQG2201M"
 };
 
 const app = initializeApp(firebaseConfig);
