@@ -39,15 +39,6 @@ async function checkAdmin(user) {
 
   await refreshBundles();
 }
-  if(!snap.exists() || snap.data().role!=="admin" || snap.data().active!==true) {
-    await signOut(auth);
-    throw new Error("This account has no active admin permission. Add its UID to admins collection with role=admin and active=true.");
-  }
-  adminUser=user;
-  $("loginPanel").hidden=true;$("dashboard").hidden=false;
-  $("adminWelcome").textContent=`Signed in: ${user.email}`;
-  await refreshBundles();
-}
 $("loginForm").addEventListener("submit",async e=>{
   e.preventDefault();$("loginMessage").textContent="Signing in…";
   try {
