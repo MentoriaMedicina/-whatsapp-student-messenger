@@ -159,9 +159,11 @@ async function boot() {
       $("welcomeName").textContent=s.name.split(" ")[0];
     } else $("studentModal").classList.add("show");
   } catch(e) {
-    console.error(e);
-    $("loadingMessage").textContent="Firebase connection failed. Check firebase.js, enable Anonymous sign-in, and verify Firestore Rules.";
-  }
+  console.error("Firebase Error:", e);
+
+  $("loadingMessage").textContent =
+    "Firebase Error: " + (e.code || e.message);
+}
 }
 $("studentForm").addEventListener("submit",async e=>{
   e.preventDefault();
