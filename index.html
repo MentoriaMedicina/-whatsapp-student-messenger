@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#079fca">
+  <title>Mentoria Medicina | MCQ Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">M</div>
+    <div class="brand-copy"><strong>Mentoria Medicina</strong><span>Learn • Practice • Improve</span></div>
+    <button class="icon-button" id="profileButton" aria-label="Student profile">👤</button>
+  </header>
+
+  <main class="app-shell">
+    <section id="homeScreen" class="screen active">
+      <div class="welcome">
+        <p class="eyebrow">YOUR LEARNING SPACE</p>
+        <h1>Welcome, <span id="welcomeName">Student</span> 👋</h1>
+        <p>Choose how you want to learn today.</p>
+      </div>
+      <div class="hero-card self-card" id="selfExamCard">
+        <div class="hero-icon">📝</div><div><h2>Self Exam</h2><p>Timed MCQ examination</p></div><span class="arrow">›</span>
+      </div>
+      <div class="hero-card practice-card" id="practiceCard">
+        <div class="hero-icon">📚</div><div><h2>Practice Questions</h2><p>Subjective questions without options</p></div><span class="arrow">›</span>
+      </div>
+      <div class="hero-card group-card" id="groupExamCard">
+        <div class="hero-icon">👥</div><div><h2>Group Exam</h2><p>Attempt a question set</p></div><span class="arrow">›</span>
+      </div>
+      <div class="quick-grid">
+        <button class="quick-card" id="myResultsButton"><span>📊</span><b>My Results</b></button>
+        <button class="quick-card" id="examHistoryButton"><span>🕘</span><b>Exam History</b></button>
+        <button class="quick-card" id="howButton"><span>💡</span><b>How it works</b></button>
+      </div>
+      <div class="section-heading"><h2>Exam Packages</h2></div>
+      <div class="bundle-list" id="bundleList"></div>
+      <p id="loadingMessage" class="result-subtitle">Connecting to Mentoria database…</p>
+    </section>
+
+    <section id="examScreen" class="screen">
+      <div class="exam-heading">
+        <button class="back-button" id="backHome">←</button>
+        <div><p class="eyebrow" id="examSubject">SUBJECT</p><h1 id="examTitle">Exam</h1></div>
+        <div class="timer" id="timer">20:00</div>
+      </div>
+      <div class="progress-row"><span id="questionCounter">Question 1</span><span id="answeredCounter">0 answered</span></div>
+      <div class="progress-track"><div id="progressFill"></div></div>
+      <div class="question-card">
+        <div class="question-meta"><span id="questionNumber">QUESTION 01</span><span class="mark-pill">1 mark</span></div>
+        <h2 id="questionText">Question</h2>
+        <div id="optionsList" class="options-list"></div>
+      </div>
+      <div class="exam-controls">
+        <button class="button button-light" id="previousButton">Previous</button>
+        <button class="button button-primary" id="nextButton">Next question</button>
+      </div>
+      <button class="submit-link" id="submitButton">Submit exam</button>
+    </section>
+
+    <section id="practiceScreen" class="screen">
+      <div class="review-heading"><button class="back-button" id="practiceBack">←</button><div><p class="eyebrow">SUBJECTIVE LEARNING</p><h1>Practice Questions</h1></div></div>
+      <div id="subjectiveList"></div>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="result-header">
+        <p class="eyebrow">EXAM COMPLETED</p><h1>Well done, <span id="resultName">Student</span>!</h1>
+        <div class="score-ring"><div><strong id="scorePercent">0%</strong><span>Score</span></div></div>
+        <p class="result-subtitle" id="resultSummary">Your result is ready.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box blue"><span>Total questions</span><strong id="totalStat">0</strong></div>
+        <div class="stat-box purple"><span>Correct answers</span><strong id="correctStat">0</strong></div>
+        <div class="stat-box red"><span>Wrong answers</span><strong id="wrongStat">0</strong></div>
+        <div class="stat-box yellow"><span>Unanswered</span><strong id="unansweredStat">0</strong></div>
+      </div>
+      <div class="result-actions"><button class="button button-light" id="reviewButton">Review answers</button><button class="button button-primary" id="homeButton">Back to home</button></div>
+    </section>
+
+    <section id="reviewScreen" class="screen">
+      <div class="review-heading"><button class="back-button" id="backResult">←</button><div><p class="eyebrow">ANSWER REVIEW</p><h1>Review your exam</h1></div></div>
+      <div id="reviewList"></div><button class="button button-primary full-button" id="reviewHomeButton">Back to home</button>
+    </section>
+
+    <section id="historyScreen" class="screen">
+      <div class="review-heading"><button class="back-button" id="historyBack">←</button><div><p class="eyebrow">YOUR ACTIVITY</p><h1>Exam history</h1></div></div>
+      <div id="historyList" class="history-list"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-item selected" id="navHome"><span>⌂</span>Home</button>
+    <button class="nav-item" id="navResults"><span>▤</span>Results</button>
+    <button class="nav-add" id="navExam">+</button>
+    <button class="nav-item" id="navProfile"><span>♙</span>Profile</button>
+    <button class="nav-item" id="navMenu"><span>☰</span>Menu</button>
+  </nav>
+
+  <div class="modal-backdrop" id="studentModal">
+    <div class="modal">
+      <div class="modal-logo">M</div><p class="eyebrow">MENTORIA MEDICINA</p><h2>Let's get started</h2>
+      <p class="modal-description">Enter your details before starting.</p>
+      <form id="studentForm">
+        <label for="studentName">Student name</label><input id="studentName" type="text" placeholder="Enter your full name" required maxlength="60">
+        <label for="studentYear">Academic year</label>
+        <select id="studentYear" required><option value="">Select your year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>5th Year</option></select>
+        <button class="button button-primary full-button" type="submit">Continue</button>
+      </form>
+      <p class="tiny-note">Your name, academic year and exam results are saved securely to the portal database.</p>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

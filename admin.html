@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mentoria Medicina | Admin</title><link rel="stylesheet" href="style.css">
+<style>
+.admin-wrap{max-width:900px;margin:28px auto;padding:18px}.admin-panel{background:#fff;border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 8px 28px #1231}
+.admin-panel input,.admin-panel select,.admin-panel textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #d7e0e8;border-radius:10px;box-sizing:border-box}
+.admin-panel label{font-weight:600}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.admin-msg{padding:12px;border-radius:10px;background:#eef8fb;margin:12px 0}
+@media(max-width:650px){.admin-grid{grid-template-columns:1fr}}
+</style></head><body>
+<header class="topbar"><div class="brand-mark">M</div><div class="brand-copy"><strong>Mentoria Medicina</strong><span>Admin Dashboard</span></div></header>
+<main class="admin-wrap">
+<section id="loginPanel" class="admin-panel"><h1>Admin Login</h1><form id="loginForm"><label>Email</label><input id="adminEmail" type="email" required><label>Password</label><input id="adminPassword" type="password" required><button class="button button-primary" type="submit">Login</button></form><p id="loginMessage" class="admin-msg">Sign in with your registered admin account.</p></section>
+<div id="dashboard" hidden>
+  <div class="admin-panel"><h1>Admin Dashboard</h1><p id="adminWelcome"></p><button id="logoutButton" class="button button-light">Logout</button></div>
+  <section class="admin-panel"><h2>Create Exam Bundle</h2><form id="bundleForm">
+    <div class="admin-grid"><div><label>Bundle title</label><input id="bundleTitle" required></div><div><label>Subject</label><input id="bundleSubject" required></div></div>
+    <label>Description</label><textarea id="bundleDescription" rows="2"></textarea>
+    <div class="admin-grid"><div><label>Academic year</label><select id="bundleYear"><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>5th Year</option></select></div><div><label>Duration (minutes)</label><input id="bundleDuration" type="number" value="20" min="1"></div></div>
+    <button class="button button-primary">Save Bundle</button>
+  </form></section>
+  <section class="admin-panel"><h2>Add MCQ Question</h2><form id="mcqForm">
+    <label>Choose bundle</label><select id="mcqBundle" required></select><label>Question</label><textarea id="mcqQuestion" rows="3" required></textarea>
+    <div class="admin-grid"><div><label>Option A</label><input id="opt0" required><label>Option C</label><input id="opt2" required></div><div><label>Option B</label><input id="opt1" required><label>Option D</label><input id="opt3" required></div></div>
+    <div class="admin-grid"><div><label>Correct option</label><select id="mcqAnswer"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></div><div><label>Explanation</label><input id="mcqExplanation"></div></div>
+    <button class="button button-primary">Save MCQ</button>
+  </form></section>
+  <section class="admin-panel"><h2>Add Subjective Practice Question</h2><form id="subjectiveForm">
+    <label>Question</label><textarea id="subQuestion" rows="3" required></textarea><label>Academic year</label><select id="subYear"><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>5th Year</option></select>
+    <label>Model answer</label><textarea id="subAnswer" rows="4"></textarea><label>Explanation</label><textarea id="subExplanation" rows="3"></textarea>
+    <button class="button button-primary">Save Practice Question</button>
+  </form></section>
+  <section class="admin-panel"><h2>Database status</h2><p id="databaseStatus">Collections are created automatically when the first document is saved.</p></section>
+</div></main>
+<script type="module" src="admin.js"></script></body></html>
