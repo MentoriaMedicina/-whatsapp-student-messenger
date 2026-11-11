@@ -11,7 +11,7 @@ async function checkAdmin(user) {
   console.log("LOGIN EMAIL:", user.email);
   console.log("LOGIN UID:", user.uid);
 
-  const adminRef = doc(db, "admins", user.uid);
+  const adminRef = doc(db, "admin1", user.uid);
   const snap = await getDoc(adminRef);
 
   console.log("DOCUMENT EXISTS:", snap.exists());
