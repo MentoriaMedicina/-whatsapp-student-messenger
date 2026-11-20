@@ -1,5 +1,5 @@
 // Mentoria Medicina Admin: Google Sheets + Apps Script, no Firebase.
-const API_URL="PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const API_URL="https://script.google.com/macros/s/AKfycbxGkbaB6IGaKo2EmUGkPLsGcx00yy0-YMMDTNioUaa1MPE_dWzO2vhZKt2JV55t1pnz5A/exec";
 const $=id=>document.getElementById(id);
 let adminPassword=sessionStorage.getItem("mentoriaAdminPassword")||"";
 function safeText(v=""){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
