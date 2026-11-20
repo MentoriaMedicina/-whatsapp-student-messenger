@@ -1,5 +1,5 @@
 // Mentoria Medicina student portal: Google Sheets via Apps Script, no Firebase.
-const API_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const API_URL = "https://script.google.com/macros/s/AKfycbxGkbaB6IGaKo2EmUGkPLsGcx00yy0-YMMDTNioUaa1MPE_dWzO2vhZKt2JV55t1pnz5A/exec";
 const $ = id => document.getElementById(id);
 const screens = ["homeScreen","examScreen","practiceScreen","resultScreen","reviewScreen","historyScreen"];
 const state = {student:null,bundle:null,bundles:[],index:0,answers:{},examId:null,practiceQuestions:[],remaining:1200,timerId:null,lastResult:null,history:[],pendingBundle:null};
