@@ -67,6 +67,26 @@ h1,h2,h3,p{margin-top:0}
 .options-list{display:grid;gap:10px}
 .option,.options-list label{display:flex;align-items:center;gap:11px;padding:12px 13px;border:1.5px solid var(--line);border-radius:14px;background:#fbfdfe;color:#405765;font-size:14px;font-weight:700}
 .options-list input{accent-color:var(--cyan);width:18px;height:18px}
+
+/* Selected MCQ option */
+.option.selected {
+    background: #dff6fc !important;
+    border: 2px solid #079fca !important;
+    color: #075c78 !important;
+    box-shadow: 0 0 0 3px rgba(8,168,210,0.12);
+}
+
+.option.selected .letter {
+    background: #079fca;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 9px;
+}
+
+.option:active {
+    transform: scale(0.98);
+}
+
 .exam-controls{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0 8px}
 .button{border:0;border-radius:13px;padding:13px 18px;font-weight:900;font-size:13px;transition:transform .15s,filter .15s}
 .button:active{transform:scale(.98)}
